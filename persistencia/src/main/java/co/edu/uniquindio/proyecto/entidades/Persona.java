@@ -1,7 +1,6 @@
 package co.edu.uniquindio.proyecto.entidades;
-import  javax.persistence.Id;
-import  javax.persistence.Entity;
-import java.util.Objects;
+import javax.persistence.*;
+import java.util.Map;
 
 @Entity
 public class Persona {
@@ -9,7 +8,12 @@ public class Persona {
     private String cedula;
     private String nombre;
     private String email;
-    private String numTelefono;
+
+    @ElementCollection
+    private Map<String, String> numTelefono;
+
+    @Enumerated(EnumType.STRING)
+    private GeneroPersona genero;
 
     public Persona(){
         super();
@@ -17,11 +21,10 @@ public class Persona {
     }
 
 
-    public Persona(String cedula, String nombre, String email, String numTelefono) {
+    public Persona(String cedula, String nombre, String email) {
         this.cedula = cedula;
         this.nombre = nombre;
         this.email = email;
-        this.numTelefono = numTelefono;
     }
 
     public String getCedula() {
@@ -48,12 +51,20 @@ public class Persona {
         this.email = email;
     }
 
-    public String getNumTelefono() {
+    public Map<String, String> getNumTelefono() {
         return numTelefono;
     }
 
-    public void setNumTelefono(String numTelefono) {
+    public void setNumTelefono(Map<String, String> numTelefono) {
         this.numTelefono = numTelefono;
+    }
+
+    public GeneroPersona getGenero() {
+        return genero;
+    }
+
+    public void setGenero(GeneroPersona genero) {
+        this.genero = genero;
     }
 
     @Override
