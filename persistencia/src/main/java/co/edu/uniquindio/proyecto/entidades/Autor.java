@@ -2,10 +2,7 @@ package co.edu.uniquindio.proyecto.entidades;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
@@ -19,8 +16,13 @@ import java.io.Serializable;
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         @EqualsAndHashCode.Include
         private Integer codigo;
+        @Column(length = 100, nullable = false)
         private String nombre;
+
+        @Column(nullable = false, precision = 4)
         private Integer anioNacimiento;
+
+
 
 
 

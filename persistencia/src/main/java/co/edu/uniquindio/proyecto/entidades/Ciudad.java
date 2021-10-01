@@ -2,26 +2,27 @@ package co.edu.uniquindio.proyecto.entidades;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
-@Entity
 @Entity
 @Getter
 @Setter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @NoArgsConstructor
 @ToString
+
 public class Ciudad implements Serializable {
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         @EqualsAndHashCode.Include
+
         private Integer codigo;
+
+        @Column(nullable = false, length = 80)
         private String nombre;
 
+        public Ciudad(String nombre) {this.nombre = nombre; }
 
 
 
