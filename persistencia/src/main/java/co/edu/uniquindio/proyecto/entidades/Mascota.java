@@ -30,7 +30,7 @@ public class Prestamo   implements Serializable {
 
     @ManyToOne
     @JoinColumn(nullable = false)
-   private Usuario usuarioPrestamo;
+   private Propietario usuarioPrestamo;
 
     @ManyToMany
     private List<Libro> libros;
