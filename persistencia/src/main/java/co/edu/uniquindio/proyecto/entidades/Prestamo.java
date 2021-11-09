@@ -7,6 +7,7 @@ import javax.validation.constraints.Future;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Getter
@@ -27,4 +28,10 @@ public class Prestamo   implements Serializable {
     @Future
     private LocalDate fechaDevolucion;
 
+    @ManyToOne
+    @JoinColumn(nullable = false)
+   private Usuario usuarioPrestamo;
+
+    @ManyToMany
+    private List<Libro> libros;
 }

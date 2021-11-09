@@ -6,6 +6,7 @@ import net.bytebuddy.implementation.bind.annotation.Super;
 import javax.persistence.*;
 import javax.validation.constraints.Positive;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Getter
@@ -33,6 +34,12 @@ public class Libro implements Serializable {
     @Column(nullable = false)
     private GeneroLibro genero;
 
+
+    @ManyToMany
+    private List<Autor> autores;
+
+    @ManyToMany(mappedBy = "libros")
+    private List<Prestamo> prestamos;
 
     public Libro(String isbn, String nombre, Integer unidades, Integer anio) {
         this.isbn = isbn;

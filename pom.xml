@@ -15,10 +15,10 @@
 
     <packaging>pom</packaging>
     <groupId>co.edu.uniquindio</groupId>
-    <artifactId>proyecto-asignatura</artifactId>
-    <name>Proyecto de programacion avanzada</name>
+    <artifactId>pro-veterinaria</artifactId>
+    <name>Proyecto de ingenieria de software</name>
     <version>1.0-SNAPSHOT</version>
-    <description> este proyecto contiene los diferentes modulos de la aplicacion del proyecto final de programacion avanzada</description>
+    <description> este proyecto contiene los diferentes modulos de la aplicacion del proyecto final de ingenieria de software</description>
 
     <properties>
         <java.version>11</java.version>
