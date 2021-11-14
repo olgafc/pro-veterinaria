@@ -7,3 +7,4 @@
 #Archivos de IntelliJ
 *.iml
 /.idea
+/persistencia/target/
