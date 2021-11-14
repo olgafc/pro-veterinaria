@@ -8,44 +8,35 @@ import java.util.List;
 import java.util.Map;
 
 @Entity
+@Table(name="Propietario")
 @Getter
 @Setter
-@NoArgsConstructor
-@EqualsAndHashCode
 @ToString
 
-public class Usuario extends Persona implements Serializable  {
+
+public class Propietario extends Persona implements Serializable {
 
 
-
-    @Column(nullable = false, unique = true, length = 120)
-    private String email;
-
-    @ElementCollection
-    @JoinColumn(nullable = false)
-    private Map<String, String> numTelefono;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false, length = 100)
+    @EqualsAndHashCode.Include
+    private Integer identificacion;
 
 
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private GeneroPersona genero;
+    @Column(length = 100)
+    private String direccion;
 
-    @ManyToOne
-    @JoinColumn(nullable = false)
-    private Ciudad ciudad;
+    @Column(nullable = false, length = 100)
+    private Integer email;
 
-     @OneToMany(mappedBy = "usuarioPrestamo")
-    private List<Prestamo> prestamos;
-
-    public Usuario(String email, Map<String, String> numTelefono, GeneroPersona genero) {
-        this.email = email;
-        this.numTelefono = numTelefono;
-        this.genero = genero;
+    public Propietario() {
     }
 
-    public Usuario(String codigo, String nombre, LocalDate fechaNacimiento, String email, Map<String, String> numTelefono) {
-        super(codigo, nombre, fechaNacimiento);
+    public Propietario(Integer identificacion, String direccion, Integer email) {
+        this.identificacion = identificacion;
+        this.direccion = direccion;
         this.email = email;
-        this.numTelefono = numTelefono;
     }
 }
+
+

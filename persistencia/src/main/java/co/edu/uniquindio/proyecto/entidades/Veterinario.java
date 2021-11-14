@@ -3,27 +3,26 @@ package co.edu.uniquindio.proyecto.entidades;
 import lombok.*;
 
 import javax.persistence.*;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Positive;
 import java.io.Serializable;
-import java.util.List;
+import java.util.Map;
+
 
 @Entity
-@Getter
+@Table(name="Veterinario")
 @Setter
-@NoArgsConstructor
+@Getter
 @ToString
-    public  class Autor  extends  Persona implements Serializable{
 
-        @Positive
-        @Max(9999)
-        @Column(nullable = false, precision = 4)
-        private Integer anioNacimiento;
+    public  class Veterinario extends  Persona implements Serializable{
 
 
-        @ManyToMany(mappedBy = "autores")
-        private List<Libro> libros;
+       @EqualsAndHashCode.Include
+       @Column(length = 20)
+       @GeneratedValue(strategy = GenerationType.IDENTITY)
+        private Integer codigo;
 
 
-    }
+
+
+}
 

@@ -7,30 +7,37 @@ import java.io.Serializable;
 import java.util.List;
 
 @Entity
-@Getter
+@Table(name="Historial")
 @Setter
-@EqualsAndHashCode(onlyExplicitlyIncluded = true)
-@NoArgsConstructor
+@Getter
 @ToString
 
-public class Ciudad implements Serializable {
+public class Historial implements Serializable {
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         @EqualsAndHashCode.Include
-
         private Integer codigo;
 
         @Column(nullable = false, length = 80)
         private String nombre;
 
-        @OneToMany(mappedBy = "ciudad")
-        private List<Propietario> usuarios;
 
-        public Ciudad(String nombre) {this.nombre = nombre; }
+        @Column(nullable = false)
+        private Integer fecha;
 
+        @ManyToMany
+        private List<Veterinario> veterinarios;
 
+        public Historial() {
+        }
 
-    }
+        public Historial(Integer codigo, String nombre, Integer fecha, List<Veterinario> veterinarios) {
+                this.codigo = codigo;
+                this.nombre = nombre;
+                this.fecha = fecha;
+                this.veterinarios = veterinarios;
+        }
+}
 
 
 

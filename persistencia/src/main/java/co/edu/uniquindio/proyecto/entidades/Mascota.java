@@ -1,37 +1,47 @@
 package co.edu.uniquindio.proyecto.entidades;
 
 import lombok.*;
-
 import javax.persistence.*;
-import javax.validation.constraints.Future;
 import java.io.Serializable;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.List;
+
 
 @Entity
+@Table(name="Mascota")
 @Getter
 @Setter
-@EqualsAndHashCode(onlyExplicitlyIncluded = true)
-@NoArgsConstructor
 @ToString
-public class Prestamo   implements Serializable {
+
+public class Mascota implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
-    private Integer codigo;
+    @Column(nullable = false, length = 100)
+    private Integer codigoMascota;
 
-    @Column(nullable = false, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    private LocalDateTime fechaPrestamo;
 
-    @Column(nullable = false)
-    @Future
-    private LocalDate fechaDevolucion;
+   //* @Enumerated(EnumType.STRING)
+    //*private TipoMascota tipoMascota;
 
-    @ManyToOne
-    @JoinColumn(nullable = false)
-   private Propietario usuarioPrestamo;
+    @Column( length = 100)
+    private String nombre;
 
-    @ManyToMany
-    private List<Libro> libros;
+    @Column(length = 100)
+    private String raza;
+
+    @Column(nullable = false, length = 100)
+    private int edad;
+
+    @Column( length = 100)
+    private int sexo;
+
+    public Mascota() {
+    }
+
+    public Mascota(Integer codigoMascota, String nombre, String raza, int edad, int sexo) {
+        this.codigoMascota = codigoMascota;
+        this.nombre = nombre;
+        this.raza = raza;
+        this.edad = edad;
+        this.sexo = sexo;
+    }
 }

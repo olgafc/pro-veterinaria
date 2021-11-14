@@ -1,9 +1,14 @@
 package co.edu.uniquindio.proyecto.entidades;
 
-public enum GeneroLibro {
-    TERROR,
-    DRAMA,
-    COMEDIA,
-    MISTERIO,
+
+
+public enum TipoMascota {
+
+   PERRO,
+     GATO,
+       AVE,
+       RUEDOR,
+         REPTIL,
+
 
 }

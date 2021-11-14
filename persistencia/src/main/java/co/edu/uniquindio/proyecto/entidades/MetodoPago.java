@@ -1,5 +1,11 @@
 package co.edu.uniquindio.proyecto.entidades;
 
-public enum GeneroPersona {
-    MASCULINO, FEMENINO
+
+
+public enum MetodoPago {
+
+    DEBITO,
+    CONTADO,
+    CREDITO,
+
 }

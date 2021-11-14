@@ -1,36 +1,43 @@
 package co.edu.uniquindio.proyecto.entidades;
 
-import lombok.*;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
-
 import java.io.Serializable;
-import java.util.List;
 
 @Entity
+@Table(name="Planes")
 @Getter
 @Setter
-@EqualsAndHashCode(onlyExplicitlyIncluded = true)
-@NoArgsConstructor
 @ToString
-public class Diagnostico implements Serializable {
+
+public class Planes implements Serializable {
+
     @Id
-
-    @Column(nullable = false)
-    private Integer fecha;
-
-    @Column(nullable = false, length = 200)
-    private String observaciones;
+    @EqualsAndHashCode.Include
+    @Column(length = 100)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer codigo;
 
 
-    @Column(nullable = false, length = 80)
-    private String enfermedades;
+    @Column(nullable = false, length = 100)
+    private Integer nombre;
 
-    @Column(nullable = false, length = 80)
-    private String medicamentos;
-
-
-
-
+    public Planes() {
     }
+
+    public Planes(Integer codigo, Integer nombre, MetodoPago metodoPago) {
+        this.codigo = codigo;
+        this.nombre = nombre;
+        this.metodoPago = metodoPago;
+    }
+
+    @Enumerated(EnumType.STRING)
+    private MetodoPago metodoPago;
+    }
+
+
 
