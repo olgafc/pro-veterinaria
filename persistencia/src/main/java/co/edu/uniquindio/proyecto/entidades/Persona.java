@@ -9,29 +9,31 @@ import lombok.*;
 
 import javax.persistence.*;
 
-
-    @Entity
     @Table(name="Persona")
     @Getter
     @Setter
+    @EqualsAndHashCode(onlyExplicitlyIncluded = true)
     @ToString
     @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-    //@MappedSuperclass
-
+    @MappedSuperclass
     public class Persona implements Serializable {
         @Id
+        @Column(nullable = false, length = 10)
+        @EqualsAndHashCode.Include
+        private String cedula;
+
         @Column(nullable = false, length = 100)
-        private Integer nombre;
+        private String nombre;
 
         @ElementCollection
-        @JoinColumn(nullable = false)
+        @ToString.Exclude
         private Map<String, String> numTelefono;
 
         public Persona() {
         }
 
-        public Persona(Integer nombre, Map<String, String> numTelefono) {
+        public Persona(String cedula, String nombre) {
+            this.cedula = cedula;
             this.nombre = nombre;
-            this.numTelefono = numTelefono;
         }
     }

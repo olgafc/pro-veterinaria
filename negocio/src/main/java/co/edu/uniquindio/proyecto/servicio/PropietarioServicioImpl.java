@@ -8,11 +8,12 @@ import java.util.List;
 
 @Service
 public class PropietarioServicioImpl implements IPropietarioServicio {
-    private final PropietarioRepo propietarioRepo;
+    /*private final PropietarioRepo propietarioRepo;
 
     public PropietarioServicioImpl(PropietarioRepo propietarioRepo) {
         this.propietarioRepo = propietarioRepo;
     }
+    */
 
     @Override
     public Propietario registrarPropietario(Propietario p) throws Exception {
