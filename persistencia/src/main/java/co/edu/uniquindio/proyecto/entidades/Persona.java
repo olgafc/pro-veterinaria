@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Map;
 
 import lombok.*;
+import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
 
@@ -19,10 +20,12 @@ import javax.persistence.*;
     public class Persona implements Serializable {
         @Id
         @Column(nullable = false, length = 10)
+        @Length(max = 10)
         @EqualsAndHashCode.Include
         private String cedula;
 
         @Column(nullable = false, length = 100)
+        @Length(max = 100)
         private String nombre;
 
         @ElementCollection

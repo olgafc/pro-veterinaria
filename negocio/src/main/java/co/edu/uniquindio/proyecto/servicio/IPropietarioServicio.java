@@ -12,9 +12,9 @@ public interface IPropietarioServicio {
 
     Propietario actualizarPropietario(Propietario pNuevo) throws Exception;
 
-    void eliminarPropietario(Integer idGenerado) throws Exception;
+    void eliminarPropietario(String cedula) throws Exception;
 
     List<Propietario> listarPropietarios();
 
-    Propietario getPropietario(Integer idGenerado) throws Exception;
+    Propietario getPropietario(String cedula) throws Exception;
 }
