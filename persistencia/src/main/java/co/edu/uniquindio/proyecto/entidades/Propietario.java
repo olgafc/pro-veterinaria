@@ -4,6 +4,7 @@ import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 
 @Entity
@@ -21,6 +22,7 @@ public class Propietario extends Persona implements Serializable {
     @Column(nullable = false, length = 100, unique = true)
     @Length(max = 100)
     @Email
+    @NotBlank
     private String email;
 
     public Propietario(String cedula, String nombre, String direccion, String email) {

@@ -9,8 +9,9 @@ import lombok.*;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
-    @Table(name="Persona")
+@Table(name="Persona")
     @Getter
     @Setter
     @EqualsAndHashCode(onlyExplicitlyIncluded = true)
@@ -22,10 +23,12 @@ import javax.persistence.*;
         @Column(nullable = false, length = 10)
         @Length(max = 10)
         @EqualsAndHashCode.Include
+        @NotBlank
         private String cedula;
 
         @Column(nullable = false, length = 100)
         @Length(max = 100)
+        @NotBlank
         private String nombre;
 
         @ElementCollection

@@ -51,11 +51,13 @@ public class PropietarioServicioTest {
 
     @Test
     public void actualizar() {
-        Propietario p = new Propietario("123", "Steven", "", "stiven@email.com");
-
         try {
+            Propietario p = new Propietario("123", "Steven", "", "stiven@email.com");
+            propietarioServicio.registrarPropietario(p);
+
             Propietario buscado = propietarioServicio.getPropietario("123");
             buscado.setNombre("Stiven");
+            propietarioServicio.actualizarPropietario(buscado);
 
             Propietario pActualizado = propietarioServicio.getPropietario("123");;
             Assertions.assertEquals("Stiven", pActualizado.getNombre());
