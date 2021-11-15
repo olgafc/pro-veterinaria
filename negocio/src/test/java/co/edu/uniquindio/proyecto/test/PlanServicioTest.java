@@ -56,6 +56,5 @@ public class PlanServicioTest {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 }
