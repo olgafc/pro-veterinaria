@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Registro</title>
+    <link rel="stylesheet" href="./styles/propietario/style.css" />
+</h:head>
+<h:body>
+    <p:panel header="Registrar Propietario" class="p-text-center" id="container">
+        <h:form action="">
+            <div id="container__form">
+                <div class="container__form--field">
+                    <p:outputLabel for="cedula" value="Cédula" />
+                    <p:inputText class="campo-texto" id="cedula" value="#{propietarioBean.propietario.cedula}" required="true" />
+                </div>
+
+                <div class="container__form--field">
+                    <p:outputLabel for="nombre" value="Nombre" />
+                    <p:inputText class="campo-texto" id="nombre" value="#{propietarioBean.propietario.nombre}" required="true" />
+                </div>
+
+                <div class="container__form--field">
+                    <p:outputLabel for="direccion" value="Dirección" />
+                    <p:inputText class="campo-texto" id="direccion" value="#{propietarioBean.propietario.direccion}" />
+                </div>
+
+                <div class="container__form--field">
+                    <p:outputLabel for="email" value="Email" />
+                    <p:inputText class="campo-texto" id="email" value="#{propietarioBean.propietario.email}" required="true"  />
+                </div>
+            </div>
+            <p:growl showDetail="true" />
+
+            <div id="container__acciones">
+                <p:commandButton value="Registrar" class="button" action="#{propietarioBean.registrarPropietario}" update="@form" />
+            </div>
+        </h:form>
+    </p:panel>
+</h:body>
+</html>

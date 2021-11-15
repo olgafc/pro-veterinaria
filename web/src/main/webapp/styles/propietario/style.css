@@ -1,0 +1,32 @@
+#container {
+    margin: 0 auto;
+    max-width: 50%;
+}
+
+#container__form {
+    display: flex;
+    flex-direction: column;
+}
+
+.container__form--field {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 3px;
+}
+
+.campo-texto {
+    width: 80%
+}
+
+#container__acciones {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+#container__acciones > button {
+    width: 100%;
+}

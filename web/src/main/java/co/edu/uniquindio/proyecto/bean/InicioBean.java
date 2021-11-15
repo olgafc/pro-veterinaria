@@ -1,12 +1,12 @@
 package co.edu.uniquindio.proyecto.bean;
 
 import lombok.Getter;
-import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Component;
 
 import javax.faces.view.ViewScoped;
 import java.io.Serializable;
 
-@Controller
+@Component
 @ViewScoped
 public class InicioBean implements Serializable {
     @Getter
