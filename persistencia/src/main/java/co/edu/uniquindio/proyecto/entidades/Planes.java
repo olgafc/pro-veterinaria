@@ -24,12 +24,12 @@ public class Planes implements Serializable {
 
 
     @Column(nullable = false, length = 100)
-    private Integer nombre;
+    private String nombre;
 
     public Planes() {
     }
 
-    public Planes(Integer codigo, Integer nombre, MetodoPago metodoPago) {
+    public Planes(Integer codigo, String nombre, MetodoPago metodoPago) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.metodoPago = metodoPago;
