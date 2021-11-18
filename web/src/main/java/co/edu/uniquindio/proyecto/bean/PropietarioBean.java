@@ -6,6 +6,10 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
@@ -13,8 +17,10 @@ import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import java.io.Serializable;
 
+@Controller
 @Component
 @ViewScoped
+@RequestMapping("/request")
 public class PropietarioBean implements Serializable {
     @Getter @Setter
     private Propietario propietario;
@@ -27,6 +33,7 @@ public class PropietarioBean implements Serializable {
         propietario = new Propietario();
     }
 
+    @RequestMapping("/registrar")
     public void registrarPropietario() {
         try {
             propietarioServicio.registrarPropietario(propietario);
