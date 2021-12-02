@@ -31,6 +31,16 @@ import javax.validation.constraints.NotBlank;
         @NotBlank
         private String nombre;
 
+        @Column(nullable = false, length = 100)
+        @Length(max = 100)
+        @NotBlank
+        private String email;
+
+        @Column(nullable = false, length = 100)
+        @Length(max = 100)
+        @NotBlank
+        private String password;
+
         @ElementCollection
         @ToString.Exclude
         private Map<String, String> numTelefono;

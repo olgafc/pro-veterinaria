@@ -19,7 +19,7 @@ public class PropietarioServicioTest {
 
     @Test
     public void RegistrarTest() {
-        Propietario p = new Propietario("123", "Stiven", "", "stiven@email.com");
+        Propietario p = new Propietario("123", "Stiven", "");
         try {
             Propietario respuesta = propietarioServicio.registrarPropietario(p);
 
@@ -32,7 +32,7 @@ public class PropietarioServicioTest {
     @Test
     public void eliminar() {
         try {
-            Propietario p = new Propietario("123", "Stiven", "", "stiven@email.com");
+            Propietario p = new Propietario("123", "Stiven", "");
             propietarioServicio.registrarPropietario(p);
 
             propietarioServicio.eliminarPropietario("123");
@@ -52,7 +52,7 @@ public class PropietarioServicioTest {
     @Test
     public void actualizar() {
         try {
-            Propietario p = new Propietario("123", "Steven", "", "stiven@email.com");
+            Propietario p = new Propietario("123", "Steven", "");
             propietarioServicio.registrarPropietario(p);
 
             Propietario buscado = propietarioServicio.getPropietario("123");

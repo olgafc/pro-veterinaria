@@ -7,14 +7,15 @@ import lombok.ToString;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
+
 
 @Entity
-@Table(name="Planes")
+@Table(name="Beneficio")
 @Getter
 @Setter
 @ToString
-
-public class Planes implements Serializable {
+public class Beneficio implements Serializable {
 
     @Id
     @EqualsAndHashCode.Include
@@ -26,18 +27,13 @@ public class Planes implements Serializable {
     @Column(nullable = false, length = 100)
     private String nombre;
 
-    public Planes() {
-    }
+    @Column(nullable = false, length = 100)
+    private String descripcion;
 
-    public Planes(Integer codigo, String nombre, MetodoPago metodoPago) {
-        this.codigo = codigo;
-        this.nombre = nombre;
-        this.metodoPago = metodoPago;
-    }
+    @Column(nullable = false, length = 100)
+    private Float precio;
 
-    @Enumerated(EnumType.STRING)
-    private MetodoPago metodoPago;
-    }
-
-
-
+    @ManyToMany(mappedBy = "beneficios")
+    @ToString.Exclude
+    private List<Plan> planes;
+}
