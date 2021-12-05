@@ -6,6 +6,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name="Propietario")
@@ -24,6 +25,9 @@ public class Propietario extends Persona implements Serializable {
     @Email
     @NotBlank
     private String email;
+
+    @OneToMany(mappedBy = "propietario")
+    private List<Pago> pagos;
 
     public Propietario(String cedula, String nombre, String direccion, String email) {
         super(cedula, nombre);

@@ -1,18 +1,17 @@
 package co.edu.uniquindio.proyecto.servicio;
 
-import co.edu.uniquindio.proyecto.entidades.Planes;
-import co.edu.uniquindio.proyecto.entidades.Propietario;
+import co.edu.uniquindio.proyecto.entidades.Plan;
 
 import java.util.List;
 
 //Requerimientos asociados a los planes.
 public interface IPlanServicio {
 
-    Planes crearPlan(Planes p) throws Exception;
+    Plan crearPlan(Plan p) throws Exception;
 
-    Planes actualizarPlan(Planes pNuevo) throws Exception;
+    Plan actualizarPlan(Plan pNuevo) throws Exception;
 
-    List<Planes> listarPlanes();
+    List<Plan> listarPlanes();
 
-    Planes getPlan(Integer codigo) throws Exception;
+    Plan getPlan(Integer codigo) throws Exception;
 }
