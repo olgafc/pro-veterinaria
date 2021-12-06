@@ -14,4 +14,6 @@ public interface IPlanServicio {
     List<Plan> listarPlanes();
 
     Plan getPlan(Integer codigo) throws Exception;
+
+    Double calcularCosto(Integer codigo) throw Exception;
 }

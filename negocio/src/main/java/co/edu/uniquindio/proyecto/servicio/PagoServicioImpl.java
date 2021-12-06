@@ -1,5 +1,6 @@
 package co.edu.uniquindio.proyecto.servicio;
 
+import co.edu.uniquindio.proyecto.entidades.MetodoPago;
 import co.edu.uniquindio.proyecto.entidades.Pago;
 import co.edu.uniquindio.proyecto.entidades.Plan;
 import co.edu.uniquindio.proyecto.entidades.Propietario;
@@ -8,6 +9,7 @@ import co.edu.uniquindio.proyecto.repositorios.PlanRepo;
 import co.edu.uniquindio.proyecto.repositorios.PropietarioRepo;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -80,5 +82,10 @@ public class PagoServicioImpl implements IPagoServicio {
         if(pagoBuscado.isEmpty()) throw new Exception("El pago " + pagoBuscado + " no está registrado");
 
         return pagoBuscado.get();
+    }
+
+    @Override
+    public List<MetodoPago> listarMetodosPago() {
+        return Arrays.asList(MetodoPago.values());
     }
 }

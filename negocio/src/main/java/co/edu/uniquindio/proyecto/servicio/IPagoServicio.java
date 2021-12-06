@@ -1,5 +1,6 @@
 package co.edu.uniquindio.proyecto.servicio;
 
+import co.edu.uniquindio.proyecto.entidades.MetodoPago;
 import co.edu.uniquindio.proyecto.entidades.Pago;
 import java.util.List;
 
@@ -17,4 +18,6 @@ public interface IPagoServicio {
     List<Pago> listarPagos();
 
     Pago getPago(Integer codigo) throws Exception;
+
+    List<MetodoPago> listarMetodosPago();
 }

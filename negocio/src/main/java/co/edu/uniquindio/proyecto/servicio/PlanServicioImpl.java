@@ -42,8 +42,13 @@ public class PlanServicioImpl implements IPlanServicio {
     public Plan getPlan(Integer codigo) throws Exception {
         Optional<Plan> buscado = planesRepo.findById(codigo);
 
-        if(buscado.isEmpty()) throw new Exception("El codigo " + codigo + " no está registrado.");
+        if(buscado.isEmpty()) throw new Exception("El código " + codigo + " no está registrado.");
 
         return buscado.get();
+    }
+
+    @Override
+    public Double calcularCosto(Integer codigo) {
+        return null;
     }
 }
