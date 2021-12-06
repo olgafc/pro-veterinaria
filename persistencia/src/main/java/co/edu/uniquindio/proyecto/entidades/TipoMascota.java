@@ -7,8 +7,6 @@ public enum TipoMascota {
    PERRO,
      GATO,
        AVE,
-       RUEDOR,
+       ROEDOR,
          REPTIL,
-
-
 }

@@ -52,7 +52,7 @@ public class PropietarioServicioTest {
     @Test
     public void actualizar() {
         try {
-            Propietario p = new Propietario("123", "Steven", "", "stiven@email.com");
+            Propietario p = new Propietario("123", "Stiven", "", "stiven@email.com");
             propietarioServicio.registrarPropietario(p);
 
             Propietario buscado = propietarioServicio.getPropietario("123");

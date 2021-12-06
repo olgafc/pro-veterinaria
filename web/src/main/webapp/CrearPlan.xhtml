@@ -10,8 +10,9 @@
 <h:head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>CrearPlan</title>
-    <link rel="stylesheet" href="./styles/planes/style.css" />
+    <title>Registro</title>
+    <link rel="stylesheet" href="./styles/propietario/style.css" />
+
 </h:head>
 <h:body>
     <p:panel header="Plan" class="p-text-center" id="container">
@@ -19,27 +20,28 @@
             <div id="container__form">
                 <div class="container__form--field">
                     <p:outputLabel for="codigo" value="Código" />
-                    <p:inputText class="campo-texto" id="codigo" value="#{planBean.planes.codigo}" required="true" />
+
+                    <p:inputText class="campo-texto" id="codigo" value="#{planBean.plan.codigo}" required="true" />
                 </div>
 
                 <div class="container__form--field">
                     <p:outputLabel for="nombre" value="Nombre" />
-                    <p:inputText class="campo-texto" id="nombre" value="#{planBean.planes.nombre}" required="true" />
+                    <p:inputText class="campo-texto" id="nombre" value="#{planBean.plan.nombre}" required="true" />
                 </div>
 
                 <div class="container__form--field">
-
                     <p:outputLabel for="metodoPago" value="Metodo de Pago" />
-                    <p:inputText class="campo-texto" id="metodoPago" value="#{planBean.planes.metodoPago}" />
-
+                    <p:inputText class="campo-texto" id="metodoPago" value="#{planBean.plan.metodoPago}" />
                 </div>
             </div>
             <p:growl showDetail="true" />
 
             <div id="container__acciones">
                 <p:commandButton value="Crear" class="button" action="#{planBean.crearPlan}" update="@form"/>
+            </div>
 
-                <p:commandButton value="Actializar" class="button" action="#{planBean.actualizarPlan}" update="@form" />
+            <div id="container__acciones">
+                <p:commandButton value="Actualizar" class="button" action="#{planBean.actualizarPlan}" update="@form" />
             </div>
         </h:form>
     </p:panel>

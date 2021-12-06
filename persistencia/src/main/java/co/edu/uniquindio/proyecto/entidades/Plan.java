@@ -7,25 +7,29 @@ import lombok.ToString;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
-@Table(name="Planes")
+@Table(name="Plan")
 @Getter
 @Setter
 @ToString
 
 public class Plan implements Serializable {
-
     @Id
     @EqualsAndHashCode.Include
-    @Column(length = 100)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer codigo;
 
-
     @Column(nullable = false, length = 100)
     private String nombre;
+
+    @Column(nullable = false)
+    private LocalDateTime fechaInicio;
+
+    @Column(nullable = false)
+    private LocalDateTime fechaFin;
 
     @ManyToMany
     @ToString.Exclude
@@ -33,6 +37,10 @@ public class Plan implements Serializable {
 
     @OneToMany(mappedBy = "plan")
     private List<Pago> pagos;
+
+    @ManyToOne
+    @ToString.Exclude
+    private Propietario propietario;
 
     public Plan() {
     }
@@ -46,6 +54,3 @@ public class Plan implements Serializable {
     @Enumerated(EnumType.STRING)
     private MetodoPago metodoPago;
 }
-
-
-

@@ -17,19 +17,19 @@ import java.io.Serializable;
 @ViewScoped
 public class PlanBean implements Serializable {
     @Getter @Setter
-    private Plan planes;
+    private Plan plan;
 
     @Autowired
     private IPlanServicio planServicio;
 
     @PostConstruct
     public void inicializar() {
-        planes = new Plan();
+        plan = new Plan();
     }
 
     public void crearPlan() {
         try {
-            planServicio.crearPlan(planes);
+            planServicio.crearPlan(plan);
             FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Alerta", "El plan se creó con éxito");
             FacesContext.getCurrentInstance().addMessage(null, msg);
         } catch (Exception e) {
@@ -40,7 +40,7 @@ public class PlanBean implements Serializable {
 
     public void actualizarPlan() {
         try {
-            planServicio.actualizarPlan(planes);
+            planServicio.actualizarPlan(plan);
             FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Alerta", "El plan se actualizó con éxito");
             FacesContext.getCurrentInstance().addMessage(null, msg);
         } catch (Exception e) {

@@ -1,12 +1,12 @@
 package co.edu.uniquindio.proyecto.entidades;
 
 import lombok.*;
-
 import javax.persistence.*;
 import javax.validation.constraints.PositiveOrZero;
 import java.io.Serializable;
 
 @Entity
+@Table(name="Beneficio")
 @Getter
 @Setter
 @ToString
@@ -27,4 +27,5 @@ public class Beneficio implements Serializable {
     @PositiveOrZero
     @Column(nullable = false)
     private Double precio;
+
 }

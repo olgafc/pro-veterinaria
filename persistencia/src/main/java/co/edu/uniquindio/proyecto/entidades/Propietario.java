@@ -20,19 +20,21 @@ public class Propietario extends Persona implements Serializable {
     @Length(max = 100)
     private String direccion;
 
-    @Column(nullable = false, length = 100, unique = true)
-    @Length(max = 100)
-    @Email
-    @NotBlank
-    private String email;
+    @OneToMany(mappedBy = "propietario")
+    @ToString.Exclude
+    private List<Mascota> mascotas;
 
     @OneToMany(mappedBy = "propietario")
+    @ToString.Exclude
+    private List<Plan> planes;
+
+    @OneToMany(mappedBy = "propietario")
+    @ToString.Exclude
     private List<Pago> pagos;
 
     public Propietario(String cedula, String nombre, String direccion, String email) {
-        super(cedula, nombre);
+        super(cedula, nombre, email);
         this.direccion = direccion;
-        this.email = email;
     }
 }
 

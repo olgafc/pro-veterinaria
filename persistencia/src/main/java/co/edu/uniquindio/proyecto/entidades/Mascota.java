@@ -3,6 +3,7 @@ package co.edu.uniquindio.proyecto.entidades;
 import lombok.*;
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 
 @Entity
@@ -33,6 +34,15 @@ public class Mascota implements Serializable {
 
     @Column( length = 100)
     private int sexo;
+
+
+    @OneToMany(mappedBy = "mascota")
+    @ToString.Exclude
+    private List<Historial> historiales;
+
+    @ManyToOne
+    @ToString.Exclude
+    private Propietario propietario;
 
     public Mascota() {
     }

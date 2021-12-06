@@ -1,6 +1,7 @@
 package co.edu.uniquindio.proyecto.test;
 
 import co.edu.uniquindio.proyecto.NegocioApplication;
+import co.edu.uniquindio.proyecto.entidades.MetodoPago;
 import co.edu.uniquindio.proyecto.entidades.Plan;
 import co.edu.uniquindio.proyecto.servicio.IPlanServicio;
 import org.junit.jupiter.api.Assertions;
@@ -11,7 +12,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import javax.transaction.Transactional;
 import java.util.List;
 
-import static co.edu.uniquindio.proyecto.entidades.MetodoPago.DEBITO;
 
 @SpringBootTest(classes = NegocioApplication.class)
 @Transactional
@@ -21,7 +21,7 @@ public class PlanServicioTest {
 
     @Test
     public void crearTest() {
-        Plan p = new Plan(123, "Hogar", DEBITO);
+        Plan p = new Plan(123, "Hogar", MetodoPago.CUENTA_CORRIENTE);
         try {
             Plan respuesta = planServicio.crearPlan(p);
 
@@ -40,7 +40,7 @@ public class PlanServicioTest {
     @Test
     public void actualizar() {
         try {
-            Plan p = new Plan(123, "Hogar", DEBITO);
+            Plan p = new Plan(123, "Hogar", MetodoPago.TARJETA_DEBITO);
             planServicio.crearPlan(p);
 
             Plan buscado = planServicio.getPlan(123);
